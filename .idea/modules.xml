@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/backend_flask/backend_flask.iml" filepath="$PROJECT_DIR$/backend_flask/backend_flask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/backend_spring.main.iml" filepath="$PROJECT_DIR$/.idea/modules/backend_spring.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontend/frontend.iml" filepath="$PROJECT_DIR$/frontend/frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swn_char_gen.iml" filepath="$PROJECT_DIR$/swn_char_gen.iml" />
+    </modules>
+  </component>
+</project>
