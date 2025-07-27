@@ -170,7 +170,7 @@ public class SWNChar
 		ObjectMapper mapper = new ObjectMapper();
 		// null means don't change member variable names - we want it to match the Python output
 		mapper.setPropertyNamingStrategy(null);
-		// The next two lines are in case any accessors are defined in our "data only" class, since Java doesn't enforce that.
+		// The next two lines are in case any accessors are defined in our "data-only" class, since Java doesn't enforce that.
 		mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE);
 		mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
@@ -188,14 +188,14 @@ public class SWNChar
 		ObjectMapper mapper = new ObjectMapper();
 		// null means don't change member variable names - we want it to match the Python output
 		mapper.setPropertyNamingStrategy(null);
-		// The next two lines are in case any accessors are defined in our "data only" class, since Java doesn't enforce that.
+		// The next two lines are in case any accessors are defined in our "data-only" class, since Java doesn't enforce that.
 		mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE);
 		mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
 		// Convert Map to JsonNode
 		JsonNode node = mapper.valueToTree(theData);
 
-		// Update existing object with Map data
+		// Update the existing object with Map data
 		mapper.readerForUpdating(this.mData).readValue(node);
 	}
 }
