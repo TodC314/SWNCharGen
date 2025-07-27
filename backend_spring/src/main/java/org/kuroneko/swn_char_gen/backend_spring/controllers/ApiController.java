@@ -229,7 +229,7 @@ public class ApiController
 
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
-			headers.setContentDispositionFormData("attachment", "character.json");
+			headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"character.json\"");
 
 			return new ResponseEntity<>(characterJson, headers, HttpStatus.OK);
 		}
