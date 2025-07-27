@@ -37,9 +37,19 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mockito:mockito-inline:5.2.0'
+    testImplementation 'net.bytebuddy:byte-buddy-agent:1.14.12'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+    
+    doFirst {
+        def byteBuddyAgent = configurations.testRuntimeClasspath.find { it.name.contains('byte-buddy-agent') }
+        if (byteBuddyAgent) {
+            jvmArgs "-Xshare:off"
+            jvmArgs "-javaagent:${byteBuddyAgent.absolutePath}"
+        }
+    }
 }
