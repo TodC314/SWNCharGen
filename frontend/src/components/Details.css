@@ -41,14 +41,6 @@
   text-align: center;
 }
 
-.detail-modifier-label {
-  text-align: center;
-}
-
-.detail-radio-label {
-  text-align: right;
-}
-
 .detail-row {
   display: contents;
 }
@@ -64,10 +56,6 @@
   width: 36ch;
   box-sizing: border-box;
   justify-self: center;
-}
-
-.detail-modifier {
-  text-align: center;
 }
 
 .detail-row input[type="radio"] {

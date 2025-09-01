@@ -130,7 +130,7 @@ class TestSWNChar(unittest.TestCase):
 			"mWisdomModifier": -1,
 			"mCharismaModifier": -2,
 			"mChangedAttribute": "STRENGTH",
-			"mAttributeOriginalValue": 10
+			"mChangedAttributeOriginalValue": 10
 		}
 		
 		# Create a character and load the data

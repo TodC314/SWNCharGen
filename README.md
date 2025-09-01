@@ -19,15 +19,16 @@ The current features are:
 - Calculate the attribute modifiers when the attributes change.
 - Assign a single attribute value to 14 - old value is preserved to allow reassignment.
 - Download and upload JSON to preserve a character.
+- Testing so future features don't break current features.
 
 Future planned features are:
 
-- More tests are needed. This will likely take priority over features.
 - Rolling for background and skills.
 - Future features will follow the flow on page 4 of the Revised free book: A Summary of Character Creation.
 - I also plan to add support for downloading and uploading form-fillable PDF files containing the character data.
 - Providing a back-end database that is shared between Flask and Spring Boot is also planned.
 - Along with the database is some form of authentication, method to be determined.
+- Replace development Flask WSGI with production one.
 - Once this application is actually minimally useful, I will also provide it live online in a Docker container.
 - Long-term I plan to use Perplexity (or other AI) to add a natural language interface to allow character design.
 

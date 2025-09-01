@@ -9,8 +9,8 @@
 
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.3'
-    id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.springframework.boot' version '3.5.+'
+    id 'io.spring.dependency-management' version '1.1.+'
 }
 
 group = 'org.kuroneko.swn_char_gen'
@@ -37,9 +37,23 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mockito:mockito-inline:5.+'
+    testImplementation 'net.bytebuddy:byte-buddy-agent:1.+'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-tasks.named('test') {
+tasks.named('test', Test) {
     useJUnitPlatform()
+
+    // Add JVM args in a type-safe way
+    jvmArgs "-Xshare:off"
+
+    doFirst {
+        // Resolve the byte-buddy-agent jar from the testRuntimeClasspath
+        def agentFile = configurations.testRuntimeClasspath.files.find { File f -> f.name.contains('byte-buddy-agent') }
+        if (agentFile) {
+            // Call jvmArgs on the Test task explicitly to avoid unresolved reference in IDE
+            (it as Test).jvmArgs("-javaagent:${agentFile.absolutePath}")
+        }
+    }
 }

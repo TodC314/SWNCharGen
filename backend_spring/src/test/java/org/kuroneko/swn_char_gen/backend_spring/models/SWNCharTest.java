@@ -81,14 +81,16 @@ public class SWNCharTest
 	 * Tests that the constructor with a Map argument correctly initializes a character.
 	 * Creates a character with specific attribute values and verifies that all fields
 	 * are set correctly from the provided Map.
-	 * 
+	 *
 	 * @throws IOException if there's an error during character creation
 	 */
+	@SuppressWarnings("ExtractMethodRecommender")
 	@Test
 	@DisplayName("Test constructor with Map argument")
 	void testConstructorWithMap() throws IOException
 	{
 		// Create a Map with character data
+		// suppressing ExtractMethodRecommender - want to keep original and test values in same function
 		Map<String, Object> charData = new HashMap<>();
 		charData.put("mName", "Test Character");
 		charData.put("mStrength", 14);
@@ -140,7 +142,7 @@ public class SWNCharTest
 	 * Tests that the constructor with a null Map argument creates a character with default values.
 	 * Verifies that when null is passed to the constructor, it creates a character with
 	 * the same default values as the default constructor.
-	 * 
+	 *
 	 * @throws IOException if there's an error during character creation
 	 */
 	@Test
@@ -173,7 +175,7 @@ public class SWNCharTest
 	 * Tests the fromMap method for loading character data from a Map.
 	 * Verifies that the method correctly updates the character's fields
 	 * with the values from the provided Map.
-	 * 
+	 *
 	 * @throws IOException if there's an error during data loading
 	 */
 	@Test
@@ -247,9 +249,7 @@ public class SWNCharTest
 	{
 		// Try to set an invalid detail
 		Exception exception = assertThrows(IllegalArgumentException.class, () ->
-		{
-			character.setDetail(DetailEnum.NONE, "Test Value");
-		});
+				character.setDetail(DetailEnum.NONE, "Test Value"));
 
 		// Check that the exception message is correct
 		assertEquals("Invalid detail: NONE", exception.getMessage());
@@ -326,7 +326,7 @@ public class SWNCharTest
 	 * 2. The attribute modifier is updated correctly
 	 * 3. The changed attribute and its original value are tracked
 	 * 4. When a different attribute is changed, the previously changed attribute is restored
-	 *    to its original value
+	 * to its original value
 	 */
 	@Test
 	@DisplayName("Test changeOneAttribute method")
@@ -391,7 +391,7 @@ public class SWNCharTest
 	 * 1. The Map contains all the expected keys for character fields
 	 * 2. The values in the Map match the character's field values
 	 * 3. The conversion process works correctly after setting character details
-	 *    and rolling attributes
+	 * and rolling attributes
 	 */
 	@Test
 	@DisplayName("Test toMap method")

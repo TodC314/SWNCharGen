@@ -45,7 +45,7 @@ function Details({character, onChangeDetails})
 		if (character)
 		{
 			// details
-			setName(character.mName)
+			setName(character['mName'])
 		}
 	}, [character])
 
@@ -60,6 +60,7 @@ function Details({character, onChangeDetails})
 		onChangeDetails(detailId, detailValue)
 	}
 
+	// noinspection JSValidateTypes
 	return (
 		<div className="details-form">
 			<h2>Details</h2>

@@ -7,7 +7,7 @@
  * Specifically, the SWNSystem.java and swn_system.py game strings, values, and relationship are the copyright of Kevin Crawford, Sine Nominee Publishing.
  */
 
-import {useState, useEffect, Fragment} from 'react'
+import {useState, useEffect, Fragment, JSX} from 'react'
 import axios from 'axios'
 import './App.css'
 import Attributes from './components/Attributes'
