@@ -174,6 +174,7 @@ public class SWNChar
 		mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE);
 		mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
+		//noinspection Convert2Diamond
 		return mapper.convertValue(this.mData, new TypeReference<Map<String,Object>>() {});
 	}
 

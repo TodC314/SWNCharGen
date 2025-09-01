@@ -84,6 +84,7 @@ public class SWNSystem
 	 *
 	 * @return The value for a changed attribute
 	 */
+	@SuppressWarnings("SameReturnValue")
 	public int getChangedAttributeValue()
 	{
 		return 14;

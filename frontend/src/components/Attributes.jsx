@@ -106,6 +106,7 @@ function Attributes({character, onRollAttributes, onChangeAttribute})
 		onChangeAttribute(newAttributeName)
 	}
 
+	// noinspection JSValidateTypes
 	return (
 		<div className="attributes-form">
 			<h2>Attributes</h2>

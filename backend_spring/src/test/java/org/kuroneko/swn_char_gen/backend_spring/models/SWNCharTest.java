@@ -84,11 +84,13 @@ public class SWNCharTest
 	 *
 	 * @throws IOException if there's an error during character creation
 	 */
+	@SuppressWarnings("ExtractMethodRecommender")
 	@Test
 	@DisplayName("Test constructor with Map argument")
 	void testConstructorWithMap() throws IOException
 	{
 		// Create a Map with character data
+		// suppressing ExtractMethodRecommender - want to keep original and test values in same function
 		Map<String, Object> charData = new HashMap<>();
 		charData.put("mName", "Test Character");
 		charData.put("mStrength", 14);
@@ -247,9 +249,7 @@ public class SWNCharTest
 	{
 		// Try to set an invalid detail
 		Exception exception = assertThrows(IllegalArgumentException.class, () ->
-		{
-			character.setDetail(DetailEnum.NONE, "Test Value");
-		});
+				character.setDetail(DetailEnum.NONE, "Test Value"));
 
 		// Check that the exception message is correct
 		assertEquals("Invalid detail: NONE", exception.getMessage());

@@ -37,7 +37,6 @@ def dict_to_enum(the_data: Dict[str, Any], the_instance: SWNCharData) -> None:
 	if not hasattr(the_instance, '__annotations__'):
 		return
 
-	result: Any = {}
 	for key, value in the_data.items():
 		if key not in the_instance.__annotations__:
 			continue
