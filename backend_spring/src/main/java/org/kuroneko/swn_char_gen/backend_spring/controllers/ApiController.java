@@ -55,6 +55,7 @@ public class ApiController
 	{
 		try
 		{
+			logger.info("Spring new-character");
 			Map<String, Object> character = characterService.createNewCharacter();
 			return ResponseEntity.ok(character);
 		}
@@ -77,6 +78,7 @@ public class ApiController
 	{
 		try
 		{
+			logger.info("Spring character");
 			Map<String, Object> character = characterService.getCharacter();
 			return ResponseEntity.ok(character);
 		}
@@ -99,6 +101,7 @@ public class ApiController
 	{
 		try
 		{
+			logger.info("Spring roll-attributes");
 			Map<String, Object> character = characterService.rollAttributes();
 			return ResponseEntity.ok(character);
 		}
@@ -122,6 +125,7 @@ public class ApiController
 	{
 		try
 		{
+			logger.info("Spring change-attribute");
 			String attribute = requestBody.get("attribute");
 			if (attribute == null || attribute.isEmpty())
 			{
@@ -153,6 +157,7 @@ public class ApiController
 	{
 		try
 		{
+			logger.info("Spring set-detail");
 			String detail = requestBody.get("detail");
 			String value = requestBody.get("value");
 
@@ -186,6 +191,7 @@ public class ApiController
 	{
 		try
 		{
+			logger.info("Spring upload-character");
 			// check for file - for now, we're not worried about file name or extension
 			if (file.isEmpty())
 			{
@@ -195,7 +201,9 @@ public class ApiController
 			}
 
 			// Parse the JSON file to a Map
-			Map<String, Object> characterData = objectMapper.readValue( file.getInputStream(), new TypeReference<Map<String, Object>>() {});
+			//noinspection JvmTaintAnalysis Is not parsing the file path, just the JSON file, Convert2Diamond I prefer knowing the classes
+			@SuppressWarnings("Convert2Diamond")
+			Map<String, Object> characterData = objectMapper.readValue(file.getInputStream(), new TypeReference<Map<String, Object>>() {});
 
 			// Upload the character using the service
 			Map<String, Object> character = characterService.uploadCharacter(characterData);
@@ -221,6 +229,7 @@ public class ApiController
 	{
 		try
 		{
+			logger.info("Spring download-character");
 			// Get the current character
 			Map<String, Object> character = characterService.getCharacter();
 
